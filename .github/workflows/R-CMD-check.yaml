@@ -41,6 +41,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
+          packages: pak::pak("any::MASS?reinstall")
           extra-packages: rcmdcheck
 
       - uses: r-lib/actions/check-r-package@v1
