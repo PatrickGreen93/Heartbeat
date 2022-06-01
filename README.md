@@ -30,12 +30,13 @@ devtools::install_github("PatrickGreen93/Heartbeat")
 
 ## Example
 
-Below is a basic example of how the code works and a reproducible
-dataset.
+Below is a basic example of how the code works and a reproducible data
+set.
 
 ``` r
 library(Heartbeat)
 
+# Sample data set, set 30 items as it is a good amount to set a theoretical "baseline".
 set.seed(43)
 n <- 30
 y <- 100
