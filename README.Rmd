@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Heartbeat
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of the Heartbeat package is to provide users with a fast and easy method of conducting Heartbeat Analysis on Numeric Likert data with a single function. Heartbeat Analysis itself is a simple method of gauging sentiment of respondents at the item level by using within-group methods to highlight when an individual's response is significantly higher or lower than their own typical baseline.
+
+Additionally, there are several arguments that can be used within this package which are covered more in-depth in the Introduction.rmd file.
+
+## Installation
+
+Installation of the package can be done by copying the line of code below.
+
+``` r
+devtools::install_github("PatrickGreen93/Heartbeat")
+```
+
+## Example
+
+Below is a basic example of how the code works and a reproducible dataset. 
+
+```{r example, warning=FALSE, message=FALSE}
+library(Heartbeat)
+# For the purpose of this vignette, I will create a reproducible data.frame
+set.seed(43)
+n <- 30
+y <- 100
+example <- data.frame()
+for (i in 1:n){
+  x <- data.frame(sample(1:5, y, replace = TRUE, prob = c(0.1, 0.2, 0.4, 0.2, 0.1)))
+  colnames(x) <- paste0("Q",i)
+  example[1:y,i] <- x
+}
+example[1:5,1:5]
+
+example <- heartbeat(example, type = "counts", threshold = 1, props = FALSE, controversial = TRUE)
+example[1:5,]
+
+```

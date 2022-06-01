@@ -1,0 +1,26 @@
+Package: Heartbeat
+Title: Run Heartbeat Analysis on numerical Likert Data
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Patrick", "Green", , "patrickagreen93@gmail.com", role = c("aut", "cre")),
+    person("Christopher", "Patton", role = "aut"),
+    person("Justin", "Purl", role = "aut")
+  )
+Description: A simple package to conduct Heartbeat Analysis on Likert data
+    and produce a data.frame ready to be presented as a table or developed
+    further in a graphic. Heartbeat Analysis is a method of reporting
+    sentiment developed by Christopher Patton and Justin Purl, presented
+    at SIOP 2021.
+License: GPL (>= 3)
+Imports:
+    dplyr,
+    tidyr
+Suggests: 
+    knitr,
+    rmarkdown,
+    ggplot2
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0.9000
