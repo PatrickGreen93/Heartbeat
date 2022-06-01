@@ -22,7 +22,7 @@ The purpose of this vignette is to:
 
 ### What is Heartbeat Analysis?
 
-Heartbeat Analysis is a novel method of measuring sentiment, gauging when respondents feel strongly one way or the other about a particular item. The basic premise is that individuals have a "baseline" or typical response style when filling out sentiment surveys that may or may not be the implied neutral response. This means that an individual may fill out most responses as "Agree" (4), yet not actually feel too strongly about the item. Using within-group comparisons (i.e., comparing individual's responses), one can establish the respondent's typical response pattern and then judge when a response exceeds their own neutral response. 
+Heartbeat Analysis is a novel method of measuring sentiment developed by Christopher Patton and Justin Purl, gauging when respondents feel strongly one way or the other about a particular item. The basic premise is that individuals have a "baseline" or typical response style when filling out sentiment surveys that may or may not be the implied neutral response. This means that an individual may fill out most responses as "Agree" (4), yet not actually feel too strongly about the item. Using within-group comparisons (i.e., comparing individual's responses), one can establish the respondent's typical response pattern and then judge when a response exceeds their own neutral response. 
 
 The name "heartbeat" comes from how one may visualize this process across on individual's responses. Think of the stereotypical image we have of a heartbeat monitor, with a baseline followed by ups and downs according to one's pulse. In this case, the departures from the baseline, spiking up or down, are instances of strong sentiment towards the item in question.
 

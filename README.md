@@ -11,10 +11,13 @@ easy method of conducting Heartbeat Analysis on Numeric Likert data with
 a single function. Heartbeat Analysis itself is a simple method of
 gauging sentiment of respondents at the item level by using within-group
 methods to highlight when an individual’s response is significantly
-higher or lower than their own typical baseline.
+higher or lower than their own typical baseline. The procedure itself
+was developed and presented at SIOP 2021 by Christopher Patton and
+Justin Purl.
 
-Additionally, there are several arguments that can be used within this
-package which are covered more in-depth in the Introduction.rmd file.
+A more in-depth explanation of arguments used within the package as well
+as the math behind the analysis and how results can be used is included
+in the vignette “introduction.rmd”.
 
 ## Installation
 
@@ -32,7 +35,7 @@ dataset.
 
 ``` r
 library(Heartbeat)
-# For the purpose of this vignette, I will create a reproducible data.frame
+
 set.seed(43)
 n <- 30
 y <- 100
