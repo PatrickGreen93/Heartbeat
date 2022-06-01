@@ -41,6 +41,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: pak::pak("MASS", upgrade = FALSE), any::rcmdcheck
+        run: pak::pak("MASS", upgrade = FALSE))
+          extra-packages: rcmdcheck
 
       - uses: r-lib/actions/check-r-package@v1
