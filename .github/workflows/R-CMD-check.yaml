@@ -39,9 +39,9 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      name: FIX MASS
-        run: pak::pak("MASS", upgrade = FALSE))
-        shell: Rscript {0}
+      - name: FIX MASS
+          run: pak::pak("MASS", upgrade = FALSE))
+          shell: Rscript {0}
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
