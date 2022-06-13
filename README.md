@@ -4,7 +4,8 @@
 # Heartbeat
 
 <!-- badges: start -->
-<!-- [![R-CMD-check](https://github.com/patrickgreen93/Heartbeat/workflows/R-CMD-check/badge.svg)](https://github.com/patrickgreen93/Heartbeat/actions)
+
+[![R-CMD-check](https://github.com/patrickgreen93/Heartbeat/workflows/R-CMD-check/badge.svg)](https://github.com/patrickgreen93/Heartbeat/actions)
 <!-- badges: end -->
 
 The goal of the Heartbeat package is to provide users with a fast and
