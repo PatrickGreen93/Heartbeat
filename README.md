@@ -8,9 +8,9 @@
 [![R-CMD-check](https://github.com/patrickgreen93/Heartbeat/workflows/R-CMD-check/badge.svg)](https://github.com/patrickgreen93/Heartbeat/actions)
 <!-- badges: end -->
 
-The goal of the Heartbeat package is to provide users with a fast and
-easy method of conducting Heartbeat Analysis on Numeric Likert data with
-a single function. Heartbeat Analysis itself is a method of gauging
+The goal of the this package is to provide users with a fast and easy
+method of conducting Heartbeat Analysis on Numeric Likert data with a
+single function. Heartbeat Analysis itself is a method of gauging
 sentiment of respondents at the item level by using within-group methods
 to highlight when an individual’s response is significantly higher or
 lower than their own typical baseline. The analysis was developed and
