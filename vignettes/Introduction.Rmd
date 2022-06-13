@@ -22,14 +22,14 @@ The purpose of this vignette is to:
 
 ### What is Heartbeat Analysis?
 
-Heartbeat Analysis is a novel method of measuring sentiment developed by Christopher Patton and Justin Purl, gauging when respondents feel strongly one way or the other about a particular item. The basic premise is that individuals have a "baseline" or typical response style when filling out sentiment surveys that may or may not be the implied neutral response. This means that an individual may fill out most responses as "Agree" (4), yet not actually feel too strongly about the item. Using within-group comparisons (i.e., comparing individual's responses), one can establish the respondent's typical response pattern and then judge when a response exceeds their own neutral response. 
+Heartbeat Analysis is a novel method of measuring sentiment developed by Christopher Patton and Justin Purl, gauging when respondents feel strongly one way or the other about a particular item. The basic premise is that individuals have a "baseline" or typical response style when filling out sentiment surveys that may or may not be the implied neutral response (e.g., "neither agree nor disagree"). This means that an individual may fill out most responses as "Agree" (4), yet not actually feel too strongly about the item. Using within-group comparisons, one can establish the respondent's typical response pattern and then judge when a response exceeds their own neutral response. 
 
-The name "heartbeat" comes from how one may visualize this process across on individual's responses. Think of the stereotypical image we have of a heartbeat monitor, with a baseline followed by ups and downs according to one's pulse. In this case, the departures from the baseline, spiking up or down, are instances of strong sentiment towards the item in question.
+The name "heartbeat" comes from how one may visualize this process across an individual's responses. Think of the stereotypical image we have of a heartbeat monitor, with a baseline followed by ups and downs according to one's pulse. In this case, the departures from the baseline, spiking up or down, are instances of strong sentiment towards the item in question.
 
 
 ### How is it calculated?
 
-The basic idea is to standardize an individual's responses based upon their own mean and standard deviation. With a pre-established threshold of what constitutes "strong sentiment", represented in the package as "threshold", one can then establish when a response greatly exceeds their own typical response. The calculations for each component are as such:
+The basic idea is to standardize an individual's responses based upon their own mean and standard deviation. With a pre-established threshold of what constitutes strong sentiment, represented in the function as `threshold`, one can then establish when a response greatly exceeds their own typical response. The calculations for each component are listed below:
 
 * Individual Mean: $$\bar{X} = \frac{\sum_{i=1}^{n} x_{i}}{n}$$
 * Individual Standard Deviation: $$s = \sqrt{\frac{\sum (x_{i} - \bar{x})^{2}}{N - 1}}$$
@@ -42,12 +42,12 @@ The basic idea is to standardize an individual's responses based upon their own 
 
 ### Why use Heartbeat Analysis?
 
-One question that may arise is why use Heartbeat Analysis instead of other common measures of sentiment, such as net-agrees? It is important to start by pointing out these two analyses are not mutually exclusive and that it is in fact highly encouraged to use both. That being said, what Heartbeat Analysis shows is slightly different, in that it uncovers intensity of sentiment within individuals rather than broad sentiment between individuals. In this case, you are muting differences in individual response patterns to capture when the individual feels strongly about an item according to their own baseline. 
+One question that may arise is why use Heartbeat Analysis instead of other common measures of sentiment, such as net-agrees? It is important to start by pointing out these two analyses are not mutually exclusive. In fact, I highly encourage using both when reporting results. That being said, what Heartbeat Analysis shows is slightly different, in that it uncovers intensity of sentiment within individuals rather than broad sentiment between individuals. In this case, you are muting differences in individual response patterns to capture when the individual feels strongly about an item according to their own baseline. 
 
 
 ## Heartbeat Package Explanation
 
-The package itself is relatively simple to use, consisting of a single function, heartbeat(). What it does is essentially convert a data.frame into the results of a heart beat analysis, specifically the amount of Up-Votes, Down-votes, and Neutral-Votes as either a count or proportion for each item. In this section, I will briefly give a walkthrough of the function.
+The package itself is relatively simple to use, consisting of a single function, `heartbeat()`. What it does is essentially convert a data frame into the results of a heart beat analysis, specifically the amount of Up-Votes, Down-votes, and Neutral-Votes as either a count or proportion for each item. In this section, I will briefly give a walkthrough of the function.
 
 
 ### Example Data
@@ -69,7 +69,7 @@ Climate[1:5,1:5]
 A few things to take note of:
 
 * Heartbeat Analysis is a within group statistic. This means that what is important for "sample size" is the number of test items. In this example, I have set `n <- 30` to designate 30 test items.
-* The function will check to make sure that the object being passed is a data.frame with numeric variables and try to coerce the object if not. This may result in producing NA's through coercion which will be removed in subsequent analyses, so be mindful of that.
+* The function will check to make sure that the object being passed is a data frame with numeric variables and try to coerce the object if not. This may result in producing NA's through coercion which will be removed in subsequent analyses. If eliminating NA's is an issue, make sure the data frame being passed in contains only numeric variables.
 
 ### Function Walkthrough
 ```{r data, warning=FALSE, message=FALSE}
@@ -99,15 +99,15 @@ HB[1,]
 
 ## Sample Visuaizations
 
-For the final section, I'll give a quick example of how one may present the data. Keep in mind that there is quite a bit of freedom in how one chooses to do so and I personally would suggest presenting it in a similar fashion as however one chooses to present more descriptive data, like net agrees. For this demonstration, I'll be using `ggplot2`.
+For the final section, I'll give a quick example of how one may present the data. Keep in mind that there is quite a bit of freedom in how one chooses to do so and I personally would suggest presenting it in a similar fashion as however one chooses to present other descriptive data, like net agrees. For this demonstration, I'll be using `ggplot2`.
 
 ```{r visuals, warning=FALSE, message=FALSE}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-# Recommend installing "tidyverse" which has these packages anad other useful packages grouped together.
+# I recommend installing "tidyverse" if not done so already, which has these packages and other useful packages grouped in one convenient location.
 
-#Selecting data we will be charting. Not advisable to chart all items in a single plot.
+#Selecting the data we will be charting. In general, I wouldn't advise charting all items in a single plot when presenting data in this manner.
 Climate <- heartbeat(Climate)
 Climate <- Climate[1:5,c(1,2,4)] %>% 
   pivot_longer(!Item, names_to = "Vote", values_to = "Count") 

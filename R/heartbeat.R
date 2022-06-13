@@ -1,11 +1,11 @@
 #' Conduct Heartbeat Analysis
 #'
-#' @param data A data.frame.
-#' @param type Type of output, default is "counts" which provides data.frame of counts, "standard" standardizes scores of original data.frame, and "votes" converts the standardization score into up-vote/down-vote/neutral.
-#' @param threshold This denotes the range of "Neutral", or conversey, what deviation score above/below the base-rate is necessary to count as an up/down-vote. Default = 1.
-#' @param props Default is false. If props = TRUE, will convert counts of each vote into proportions. Will only change output for type = "counts".
-#' @param controversial Default is true. If controversial = FALSE, function will not provide additional controversy score for each item.
-#' @return Number of up-votes, down-votes, and neutral for each variable in data.frame \code{data}.
+#' @param data A numeric data frame or object that can be coerced into a data frame.
+#' @param type Type of output. The default is "counts" which provides tallies the up/neutral/down votes of each item, "standard" standardizes each rating of the original data frame. "votes" converts the standardization score into up-vote/down-vote/neutral based on the threshold value.
+#' @param threshold A number that denotes the range of "Neutral", or conversely, what deviation score above/below the base-rate is necessary to count as an up/down-vote. Default = 1.
+#' @param props Default is false. If props = TRUE, it will convert counts of each vote into proportions. This Will only change output when type = "counts".
+#' @param controversial Default is true. If controversial = FALSE, the function will not provide the controversy score for each item.
+#' @return Number of up-votes, down-votes, and neutral-votes for each variable in the data frame \code{data}.
 #' @examples
 #' \dontrun{heartbeat(data, type = "counts", threshold = 0.5, props = TRUE, controversial = FALSE)}
 #' @import dplyr
